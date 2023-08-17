@@ -21,6 +21,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  ignorePatterns: ['**/*.mongodb.js'],
   rules: {
   },
 };
