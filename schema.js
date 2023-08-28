@@ -296,4 +296,9 @@ const testSchema = new JointSchema({
   },
 });
 
-testSchema.save();
+// eslint-disable-next-line no-unused-vars
+function saveSchema() {
+  testSchema.save();
+}
+
+export default saveSchema();
