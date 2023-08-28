@@ -23,5 +23,6 @@ module.exports = {
   },
   ignorePatterns: ['**/*.mongodb.js'],
   rules: {
+    // indent: ['error', 4], // Cambia el valor de indent a 4
   },
 };

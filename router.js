@@ -1,5 +1,9 @@
-const mongoose = require('mongoose');
+const express = require('express');
 
-const testSchema = import saveSchema from './schema.js';
+const saveSchema = require('./schema');
 
-saveSchema();
+const app = express();
+
+app.get('/test-schema').post((req, res) => {
+  res.send(saveSchema);
+});
