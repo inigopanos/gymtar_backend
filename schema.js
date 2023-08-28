@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { Int32 } = require('mongodb');
 
 const bodyListSchema = new mongoose.Schema({
-  id: Int32,
+  id: Number,
   unique_object_id: String,
   tracking_state: String,
   action_state: String,
@@ -24,7 +24,7 @@ const JointSchema = new mongoose.Schema({
     {
       is_new: Boolean,
       is_tracked: Boolean,
-      timestamp: [Int32],
+      timestamp: [Number],
       action_state: String,
       body_list: [{ bodyListSchema }],
       tracking_state: {
@@ -301,4 +301,4 @@ function saveSchema() {
   testSchema.save();
 }
 
-export default saveSchema();
+module.exports = (saveSchema());
