@@ -1,8 +1,6 @@
 /* eslint-disable no-loss-of-precision */
 const mongoose = require('mongoose');
 
-const { Int32 } = require('mongodb');
-
 const bodyListSchema = new mongoose.Schema({
   id: Number,
   unique_object_id: String,
@@ -29,16 +27,14 @@ const JointSchema = new mongoose.Schema({
       body_list: [{ bodyListSchema }],
       tracking_state: {
         type: String,
-        required: [true],
       },
       unique_object_id: {
         type: String,
-        required: [true],
       },
     },
 });
 
-const testSchema = new JointSchema({
+const TestSchema = mongoose.model('Test', JointSchema)({
   1692783040531: {
     is_new: true,
     is_tracked: false,
@@ -49,7 +45,7 @@ const testSchema = new JointSchema({
       {
         id: 0,
         unique_object_id: '8a8ef213-860c-4f5a-9260-1cda25286937',
-        tracking_state: 'OFF',
+        tracking_state: 'ON',
         action_state: 'Unknown',
         position: [
           -0.15865983068943024,
@@ -298,7 +294,7 @@ const testSchema = new JointSchema({
 
 // eslint-disable-next-line no-unused-vars
 function saveSchema() {
-  testSchema.save();
+  TestSchema.save();
 }
 
 module.exports = (saveSchema());

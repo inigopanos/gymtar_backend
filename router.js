@@ -6,7 +6,7 @@ const router = express.Router();
 
 const app = express();
 
-app.get('/test').post((req, res) => {
+app.get('/test', (req, res) => {
   res.send('Se ha enviado el esquema de prueba');
   saveSchema();
 });
