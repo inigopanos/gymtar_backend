@@ -4,9 +4,8 @@ const saveSchema = require('./schema');
 
 const router = express.Router();
 
-const app = express();
-
-app.get('/test', (req, res) => {
+router.get('/', (req, res) => {
+  console.log('Ruta raíz alcanzada');
   res.send('Se ha enviado el esquema de prueba');
   saveSchema();
 });
