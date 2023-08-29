@@ -18,13 +18,12 @@ const bodyListSchema = new mongoose.Schema({
 });
 
 const JointSchema = new mongoose.Schema({
-  joint_id:
+  [String]:
     {
       is_new: Boolean,
       is_tracked: Boolean,
       timestamp: [Number],
-      action_state: String,
-      body_list: [{ bodyListSchema }],
+      body_list: [bodyListSchema],
       tracking_state: {
         type: String,
       },
@@ -34,8 +33,11 @@ const JointSchema = new mongoose.Schema({
     },
 });
 
-const TestSchema = mongoose.model('Test', JointSchema)({
-  1692783040531: {
+const TestModel = mongoose.model('Test', JointSchema);
+
+const TestSchema = new TestModel({
+  // eslint-disable-next-line quote-props
+  '1692783040531': {
     is_new: true,
     is_tracked: false,
     timestamp: [
@@ -292,9 +294,4 @@ const TestSchema = mongoose.model('Test', JointSchema)({
   },
 });
 
-// eslint-disable-next-line no-unused-vars
-function saveSchema() {
-  TestSchema.save();
-}
-
-module.exports = (saveSchema());
+module.exports = (TestSchema);
