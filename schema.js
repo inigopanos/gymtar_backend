@@ -1,21 +1,21 @@
 /* eslint-disable no-loss-of-precision */
 const mongoose = require('mongoose');
 
-const bodyListSchema = new mongoose.Schema({
-  id: Number,
-  unique_object_id: String,
-  tracking_state: String,
-  action_state: String,
-  position: [
-    Number,
-    Number,
-    Number,
-  ],
-  confidence: Number,
-  keypoint: [[]],
-  local_position_per_joint: [],
-  local_orientation_per_joint: [],
-});
+// const bodyListSchema = new mongoose.Schema({
+//   id: Number,
+//   unique_object_id: String,
+//   tracking_state: String,
+//   action_state: String,
+//   position: [
+//     Number,
+//     Number,
+//     Number,
+//   ],
+//   confidence: Number,
+//   keypoint: [[]],
+//   local_position_per_joint: [],
+//   local_orientation_per_joint: [],
+// });
 
 const JointSchema = new mongoose.Schema({
   [String]:
@@ -23,13 +23,24 @@ const JointSchema = new mongoose.Schema({
       is_new: Boolean,
       is_tracked: Boolean,
       timestamp: [Number],
-      body_list: [bodyListSchema],
-      tracking_state: {
-        type: String,
-      },
-      unique_object_id: {
-        type: String,
-      },
+      body_list:
+      [
+        {
+          id: Number,
+          unique_object_id: String,
+          tracking_state: String,
+          action_state: String,
+          position: [
+            Number,
+            Number,
+            Number,
+          ],
+          confidence: Number,
+          keypoint: [[]],
+          local_position_per_joint: [],
+          local_orientation_per_joint: [],
+        },
+      ],
     },
 });
 
