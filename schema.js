@@ -267,3 +267,4 @@ const TestSchema = new TestModel({
 });
 
 module.exports = TestSchema;
+module.exports = TestModel;

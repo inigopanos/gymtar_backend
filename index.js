@@ -27,5 +27,5 @@ const router = require('./router');
 app.use('/', router);
 
 app.listen(port, () => {
-  console.log('Server listening in http://localhost:3600/');
+  console.log('Server listening in http://localhost:3600/prueba');
 });
