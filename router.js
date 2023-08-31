@@ -2,9 +2,12 @@ const express = require('express');
 // const saveSchema = require('./schema');
 const mongoose = require('mongoose');
 
-// eslint-disable-next-line no-unused-vars
-const TestSchema = require('./schema');
-const TestModel = require('./schema');
+const {
+  // eslint-disable-next-line no-unused-vars
+  JointSchema,
+  TestSchema,
+  TestModel,
+} = require('./schema');
 
 const router = express.Router();
 
@@ -23,12 +26,16 @@ router.get('/', (req, res) => {
 
 router.get('/prueba', async (req, res) => {
   try {
-    const testData = TestSchema;
+    const testInstance = new TestModel(TestSchema);
 
-    const testInstance = new TestModel(testData);
-    const savedData = await testInstance.save();
+    // Aquí convertimos el objeto TestSchema a un objeto plano usando toObject()
+    const testObject = testInstance.toObject();
 
-    console.log('Datos guardados:', savedData);
+    console.log('Datos a guardar en /prueba:', testObject);
+
+    const savedData = await TestModel.create(testObject);
+
+    console.log('Datos guardados en /prueba:', savedData);
     res.send('Datos guardados exitosamente');
   } catch (error) {
     console.error('Error al guardar los datos:', error);

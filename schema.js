@@ -2,22 +2,6 @@
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
-// const bodyListSchema = new mongoose.Schema({
-//   id: Number,
-//   unique_object_id: String,
-//   tracking_state: String,
-//   action_state: String,
-//   position: [
-//     Number,
-//     Number,
-//     Number,
-//   ],
-//   confidence: Number,
-//   keypoint: [[]],
-//   local_position_per_joint: [],
-//   local_orientation_per_joint: [],
-// });
-
 const JointSchema = new mongoose.Schema({
   [String]:
     {
@@ -47,7 +31,7 @@ const JointSchema = new mongoose.Schema({
 
 const TestModel = mongoose.model('Test', JointSchema);
 
-const TestSchema = new TestModel({
+const TestSchema = new mongoose.Schema({
   // eslint-disable-next-line quote-props
   '1692783040531': {
     is_new: true,
@@ -266,5 +250,8 @@ const TestSchema = new TestModel({
   },
 });
 
-module.exports = TestSchema;
-module.exports = TestModel;
+module.exports = {
+  JointSchema,
+  TestSchema,
+  TestModel,
+};
