@@ -1,4 +1,5 @@
 /* eslint-disable no-loss-of-precision */
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
 // const bodyListSchema = new mongoose.Schema({
@@ -26,7 +27,7 @@ const JointSchema = new mongoose.Schema({
       body_list:
       [
         {
-          id: Number,
+          id: ObjectId,
           unique_object_id: String,
           tracking_state: String,
           action_state: String,
@@ -258,46 +259,6 @@ const TestSchema = new TestModel({
             NaN,
           ],
         ],
-        keypoint_confidence: [
-          98.5770034790039,
-          99.35969543457031,
-          99.30189514160156,
-          99.52193450927734,
-          99.11282348632812,
-          83.98187255859375,
-          NaN,
-          94.742431640625,
-          NaN,
-          99.8291015625,
-          99.25650024414062,
-          99.32215118408203,
-          98.4274673461914,
-          98.64372253417969,
-          96.68347930908203,
-          97.80010223388672,
-          95.9961166381836,
-          87.54312133789062,
-          97.16878509521484,
-          98.15745544433594,
-          96.85980987548828,
-          97.6212158203125,
-          97.1600112915039,
-          91.92892456054688,
-          77.77568817138672,
-          77.12785339355469,
-          76.1948471069336,
-          78.48098754882812,
-          80.38626861572266,
-          77.70698547363281,
-          74.31831359863281,
-          51.282371520996094,
-          58.84921646118164,
-          NaN,
-          57.42048645019531,
-          NaN,
-          NaN,
-          NaN,
-        ],
         local_position_per_joint: [],
         local_orientation_per_joint: [],
       },
@@ -305,4 +266,4 @@ const TestSchema = new TestModel({
   },
 });
 
-module.exports = (TestSchema);
+module.exports = TestSchema;
