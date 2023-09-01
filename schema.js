@@ -31,7 +31,9 @@ const JointSchema = new mongoose.Schema({
 
 const TestModel = mongoose.model('Test', JointSchema);
 
-const TestSchema = new mongoose.Schema({
+// Test schema no tiene que ser un schema propio, sino uno creado en base a TestModel.
+
+const TestSchema = new TestModel({
   // eslint-disable-next-line quote-props
   '1692783040531': {
     is_new: true,
