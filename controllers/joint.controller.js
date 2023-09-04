@@ -7,7 +7,7 @@ const addJoint = async (req, res, next) => {
     res.status(201);
     res.json(result);
   } catch (err) {
-    next(err, 'no se ha podido crear la ruina especificada.');
+    next(err, 'no se ha podido crear el joint especificado.');
   }
 };
 

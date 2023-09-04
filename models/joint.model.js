@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-export function jointCreator(modelName = 'Joint') {
+function jointCreator(modelName = 'Joint') {
   const JointSchema = new mongoose.Schema({
     [String]:
           {
@@ -29,12 +29,11 @@ export function jointCreator(modelName = 'Joint') {
   });
 
   let Joint;
-  if (mongoose.default.models[modelName]) {
-    Joint = mongoose.model(modelName);
-  } else {
-    Joint = mongoose.model(modelName, JointSchema);
-  }
+  // eslint-disable-next-line prefer-const
+  Joint = mongoose.model(modelName, JointSchema);
   return Joint;
 }
 
-export const Joint = jointCreator();
+const Joint = jointCreator();
+// export const Joint = jointCreator();
+module.exports = Joint;
