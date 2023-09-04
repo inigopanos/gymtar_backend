@@ -22,7 +22,7 @@ mongoose.connect(DB, {
 
 const app = express();
 const port = 3600;
-const router = require('./router');
+const router = require('./routes/router');
 
 app.use('/', router);
 
