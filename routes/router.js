@@ -24,8 +24,8 @@ const router = express.Router();
 //   });
 // });
 
-router.post('/joints', addJoint, (req) => {
-  console.log('Se ha llamado a /prueba');
+router.post('/add', addJoint, (req) => {
+  console.log('Se ha llamado a /joints/add');
   console.log('Req body: ', req.body);
 });
 
